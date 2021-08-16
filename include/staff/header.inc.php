@@ -53,8 +53,6 @@ if (osTicket::is_ie())
     <!-- USEK Favicons -->
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/usek-favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/usek-favicon-16x16.png" sizes="16x16" />
-    <!-- Bootstrap 5.0 -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- USEK Theme -->
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/usek-theme.css?cb6766e" media="screen"/>
     
