@@ -182,13 +182,14 @@ foreach (Topic::getHelpTopics(true) as $id=>$name) {
     <i class="icon-file-alt"></i>
     <a class="state <?php if ($status == 'open') echo 'active'; ?>"
         href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'open')); ?>">
-    <?php echo __('Open'); if ($openTickets > 0) echo sprintf(' (%d)', $openTickets); ?>
+    <?php echo _P('ticket-status', 'Open'); if ($openTickets > 0) echo sprintf(' (%d)', $openTickets); ?>
     </a>
     <?php if ($closedTickets) { ?>
     &nbsp;
     <span style="color:lightgray">|</span>
     <?php }
 }
+ 
 if ($closedTickets) {?>
     &nbsp;
     <i class="icon-file-text"></i>
@@ -200,6 +201,10 @@ if ($closedTickets) {?>
     </small>
 </div>
 </h1>
+<!--USEK Change -->
+<div style="padding:10px 0px 10px 0px; text-align:right">
+<a id="dOpenNewTicket" class="buttonitem" href="open.php"><span class="plus"></span> Create New Ticket</a>
+</div>
 <table id="ticketTable" width="800" border="0" cellspacing="0" cellpadding="0">
     <caption><?php echo $showing; ?></caption>
     <thead>

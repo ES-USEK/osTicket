@@ -35,8 +35,12 @@ if (osTicket::is_ie())
     <meta name="description" content="customer support platform">
     <meta name="keywords" content="osTicket, Customer support system, support ticket system">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/osticket.css" media="screen">
-    <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/theme.css" media="screen">
+    <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/osticket.css" media="screen">
+    <!-- Bootstrap 5.0 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+	<link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/theme.css" media="screen">
+    <!-- USEK Theme -->
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/usek-theme.css?cb6766e" media="screen"/>
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/print.css" media="print">
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>scp/css/typeahead.css"
          media="screen" />
@@ -49,9 +53,9 @@ if (osTicket::is_ie())
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/flags.css">
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/rtl.css"/>
     <link type="text/css" rel="stylesheet" href="<?php echo ROOT_PATH; ?>css/select2.min.css">
-    <!-- Favicons -->
-    <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-32x32.png" sizes="32x32" />
-    <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/oscar-favicon-16x16.png" sizes="16x16" />
+    <!-- USEK Favicons -->
+    <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/usek-favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/usek-favicon-16x16.png" sizes="16x16" />
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-3.5.1.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-ui-1.12.1.custom.min.js"></script>
     <script type="text/javascript" src="<?php echo ROOT_PATH; ?>js/jquery-ui-timepicker-addon.js"></script>
@@ -105,20 +109,21 @@ if (osTicket::is_ie())
                     && !$thisclient->isGuest()) {
                  echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
                  ?>
-                <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> |
+                <!-- <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> | -->
                 <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a> -
-                <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a>
+                <a href="<?php echo $signout_url; ?>"><span class="sign-out"></span> <?php echo __('Sign Out'); ?></a>
             <?php
             } elseif($nav) {
-                if ($cfg->getClientRegistrationMode() == 'public') { ?>
+                // USEK: Disabled Guest User
+                /*if ($cfg->getClientRegistrationMode() == 'public') { ?>
                     <?php echo __('Guest User'); ?> | <?php
-                }
+                }*/
                 if ($thisclient && $thisclient->isValid() && $thisclient->isGuest()) { ?>
-                    <a href="<?php echo $signout_url; ?>"><?php echo __('Sign Out'); ?></a><?php
+                    <a href="<?php echo $signout_url; ?>"><span class="sign-out"></span> <?php echo __('Sign Out'); ?></a><?php
                 }
                 elseif ($cfg->getClientRegistrationMode() != 'disabled') { ?>
-                    <a href="<?php echo $signin_url; ?>"><?php echo __('Sign In'); ?></a>
-<?php
+                    <a class="signin" href="<?php echo $signin_url; ?>"><span class="sign-in"></span> <?php echo __('Sign In'); ?></a>
+            <?php
                 }
             } ?>
             </p>

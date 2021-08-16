@@ -56,11 +56,12 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     <tr><td colspan="2"><hr />
         <div class="form-header" style="margin-bottom:0.5em">
         <b><?php echo __('Help Topic'); ?></b>
+        <font class="error">*&nbsp;</font>
         </div>
     </td></tr>
     <tr>
         <td colspan="2">
-            <select id="topicId" name="topicId" onchange="javascript:
+            <select id="topicId" name="topicId" class="form-select w-50" onchange="javascript:
                     var data = $(':input[name]', '#dynamic-form').serialize();
                     $.ajax(
                       'ajax.php/form/help-topic/' + this.value,
@@ -81,7 +82,7 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
                     }
                 } ?>
             </select>
-            <font class="error">*&nbsp;<?php echo $errors['topicId']; ?></font>
+        <font class="error">&nbsp;<?php echo $errors['topicId']; ?></font>
         </td>
     </tr>
     </tbody>
@@ -114,10 +115,11 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     </tbody>
   </table>
 <hr/>
+ <!-- USEK change -->
   <p class="buttons" style="text-align:center;">
-        <input type="submit" value="<?php echo __('Create Ticket');?>">
-        <input type="reset" name="reset" value="<?php echo __('Reset');?>">
-        <input type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+        <input type="submit" class="buttonsbmt" value="<?php echo __('Create Ticket');?>">
+        <input type="reset" class="buttonrst" name="reset" value="<?php echo __('Reset');?>">
+        <input type="button" name="cancel" class="buttoncncl" value="<?php echo __('Cancel'); ?>" onclick="javascript:
             $('.richtext').each(function() {
                 var redactor = $(this).data('redactor');
                 if (redactor && redactor.opts.draftDelete)
@@ -125,4 +127,5 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
             });
             window.location.href='index.php';">
   </p>
+
 </form>

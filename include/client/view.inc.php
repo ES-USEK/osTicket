@@ -191,9 +191,9 @@ echo $attrs; ?>><?php echo $draft ?: $info['message'];
     </div>
 <?php } ?>
     <p style="text-align:center">
-        <input type="submit" value="<?php echo __('Post Reply');?>">
-        <input type="reset" value="<?php echo __('Reset');?>">
-        <input type="button" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
+        <input type="submit" class="buttonsbmt" value="<?php echo __('Post Reply');?>">
+        <input type="reset" class="buttonrst" value="<?php echo __('Reset');?>">
+        <input type="button" class="buttoncncl" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
     </p>
 </form>
 <?php

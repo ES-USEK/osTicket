@@ -77,6 +77,14 @@ if ($cats->all()) { ?>
 }
 ?>
 </div>
+    <!-- USEK -->
+    <?php if (!($thisclient && $thisclient->isValid())) { ?>
+        <div style="margin-top:20px; text-align:center"><span style="font-weight:bold">You need to </span> 
+            <a class="signin" href="<?php echo $signin_url; ?>"><?php echo __('<span class="sign-in"></span> Sign In'); ?></a>
+            <span style="font-weight:bold">to create a new Ticket.</span>
+        </div>
+        
+    <?php } ?>
 </div>
 
 <?php require(CLIENTINC_DIR.'footer.inc.php'); ?>

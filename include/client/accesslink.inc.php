@@ -35,26 +35,14 @@ else
     <p>
         <input class="btn" type="submit" value="<?php echo $button; ?>">
     </p>
-    </div>
+    <!-- USEK Changes -->
     <div class="instructions">
-<?php if ($cfg && $cfg->getClientRegistrationMode() !== 'disabled') { ?>
-        <?php echo __('Have an account with us?'); ?>
-        <a href="login.php"><?php echo __('Sign In'); ?></a> <?php
-    if ($cfg->isClientRegistrationEnabled()) { ?>
-<?php echo sprintf(__('or %s register for an account %s to access all your tickets.'),
-    '<a href="account.php?do=create">','</a>');
-    }
-}?>
+        <?php if ($cfg && $cfg->getClientRegistrationMode() !== 'disabled') { ?>
+                <?php echo __('Have an account with us?'); ?>
+                <a href="login.php"><?php echo __('Sign In'); ?></a> <?php 
+        }?>
+    </div>
     </div>
 </div>
 </form>
 <br>
-<p>
-<?php
-if ($cfg->getClientRegistrationMode() != 'disabled'
-    || !$cfg->isClientLoginRequired()) {
-    echo sprintf(
-    __("If this is your first time contacting us or you've lost the ticket number, please %s open a new ticket %s"),
-        '<a href="open.php">','</a>');
-} ?>
-</p>
