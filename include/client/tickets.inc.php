@@ -202,8 +202,8 @@ if ($closedTickets) {?>
 </div>
 </h1>
 <!--USEK Change -->
-<div style="padding:10px 0px 10px 0px; text-align:right">
-<a id="dOpenNewTicket" class="buttonitem" href="open.php"><span class="plus"></span> Create New Ticket</a>
+<div style="padding:10px 0px 10px 0px; text-align:left">
+<h2><a id="dOpenNewTicket" class="buttonitem" href="open.php"><span class="plus"></span> Create New Ticket</a></h2>
 </div>
 <table id="ticketTable" width="800" border="0" cellspacing="0" cellpadding="0">
     <caption><?php echo $showing; ?></caption>
