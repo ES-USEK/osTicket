@@ -23,8 +23,17 @@
 
     require(CLIENTINC_DIR.'header.inc.php'); 
 
-    require(CLIENTINC_DIR. 'login.inc.php'); 
+    if (($thisclient && $thisclient->isValid())) { 
 
+        require(CLIENTINC_DIR. 'tickets.inc.php'); 
+
+    } 
+    else{ 
+
+        require(CLIENTINC_DIR. 'login.inc.php');  
+          
+    }
+ 
     require(CLIENTINC_DIR.'footer.inc.php'); 
  
 ?> 
