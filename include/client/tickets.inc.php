@@ -144,8 +144,7 @@ $tickets->values(
     <input type="text" name="keywords" size="30" value="<?php echo Format::htmlchars($settings['keywords']); ?>">
     <input type="submit" value="<?php echo __('Search');?>">
 <div class="pull-right">
-    <?php echo __('Help Topic'); ?>:
-    <select name="topic_id" class="nowarn" onchange="javascript: this.form.submit(); ">
+    <select name="topic_id" class="form-control nowarn" onchange="javascript: this.form.submit(); ">
         <option value="">&mdash; <?php echo __('All Help Topics');?> &mdash;</option>
 <?php
 foreach (Topic::getHelpTopics(true) as $id=>$name) {
