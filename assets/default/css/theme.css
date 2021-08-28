@@ -610,7 +610,7 @@ span.required {
 #clientLogin div label.required {
   text-align: left;
 }
-#ticketForm div input,
+/*#ticketForm div input,*/
 #clientLogin div input,
 #ticketForm div textarea,
 #clientLogin div textarea {

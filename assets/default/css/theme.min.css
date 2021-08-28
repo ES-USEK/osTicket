@@ -529,7 +529,7 @@ body {
   font-weight: bold;
   text-align: left;
 }
-#ticketForm div input,
+/*#ticketForm div input,*/
 #clientLogin div input,
 #ticketForm div textarea,
 #clientLogin div textarea {

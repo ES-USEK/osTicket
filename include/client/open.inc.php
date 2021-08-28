@@ -116,16 +116,16 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
   </table>
 <hr/>
  <!-- USEK change -->
-  <p class="buttons" style="text-align:center;">
-        <input type="submit" class="buttonsbmt" value="<?php echo __('Create Ticket');?>">
-        <input type="reset" class="buttonrst" name="reset" value="<?php echo __('Reset');?>">
-        <input type="button" name="cancel" class="buttoncncl" value="<?php echo __('Cancel'); ?>" onclick="javascript:
-            $('.richtext').each(function() {
-                var redactor = $(this).data('redactor');
-                if (redactor && redactor.opts.draftDelete)
-                    redactor.plugin.draft.deleteDraft();
-            });
-            window.location.href='index.php';">
-  </p>
+ <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+    <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create Ticket');?>">
+    <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
+    <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+        $('.richtext').each(function() {
+            var redactor = $(this).data('redactor');
+            if (redactor && redactor.opts.draftDelete)
+                redactor.plugin.draft.deleteDraft();
+        });
+        window.location.href='index.php';">
+  </div>
 
 </form>

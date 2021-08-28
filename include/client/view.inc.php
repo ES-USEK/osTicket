@@ -24,35 +24,35 @@ if ($thisclient && $thisclient->isGuest()
     <a href="<?php echo ROOT_PATH; ?>login.php?e=<?php
         echo urlencode($thisclient->getEmail());
     ?>" style="text-decoration:underline"><?php echo __('Sign In'); ?></a>
-    <?php echo sprintf(__('or %s register for an account %s for the best experience on our help desk.'),
-        '<a href="account.php?do=create" style="text-decoration:underline">','</a>'); ?>
     </div>
 
 <?php } ?>
 
-<table width="800" cellpadding="1" cellspacing="0" border="0" id="ticketInfo">
-    <tr>
-        <td colspan="2" width="100%">
-            <h1>
-                <a href="tickets.php?id=<?php echo $ticket->getId(); ?>" title="<?php echo __('Reload'); ?>"><i class="refresh icon-refresh"></i></a>
-                <b>
-                <?php $subject_field = TicketForm::getInstance()->getField('subject');
-                    echo $subject_field->display($ticket->getSubject()); ?>
-                </b>
-                <small>#<?php echo $ticket->getNumber(); ?></small>
-<div class="pull-right">
-      <a class="action-button" href="tickets.php?a=print&id=<?php
-          echo $ticket->getId(); ?>"><i class="icon-print"></i> <?php echo __('Print'); ?></a>
-
-<?php if ($ticket->hasClientEditableFields()
-        // Only ticket owners can edit the ticket details (and other forms)
-        && $thisclient->getId() == $ticket->getUserId()) { ?>
-                <a class="action-button" href="tickets.php?a=edit&id=<?php
-                     echo $ticket->getId(); ?>"><i class="icon-edit"></i> <?php echo __('Edit'); ?></a>
-<?php } ?>
+<div class="d-flex bd-highlight mb-3">
+    <div class="me-auto p-2 bd-highlight">
+        <h1>
+        <a href="tickets.php?id=<?php echo $ticket->getId(); ?>" title="<?php echo __('Reload'); ?>"><i class="refresh icon-refresh"></i></a>
+        <b><?php $subject_field = TicketForm::getInstance()->getField('subject');
+            echo $subject_field->display($ticket->getSubject()); ?></b>
+        <small>#<?php echo $ticket->getNumber(); ?></small>
+        </h1>
+    </div>
+    <div class="p-2 bd-highlight">
+        <a class="btn btn-outline-secondary" href="tickets.php?a=print&id=<?php
+            echo $ticket->getId(); ?>"><i class="icon-print"></i> <?php echo __('Print'); ?></a>
+    </div>
+    <div class="p-2 bd-highlight">
+        <?php if ($ticket->hasClientEditableFields()
+            // Only ticket owners can edit the ticket details (and other forms)
+            && $thisclient->getId() == $ticket->getUserId()) { ?>
+        <a class="btn btn-outline-secondary" href="tickets.php?a=edit&id=<?php
+            echo $ticket->getId(); ?>"><i class="icon-edit"></i> <?php echo __('Edit'); ?></a>
+        <?php } ?>
+    </div>
 </div>
-            </h1>
-        </td>
+<h2><hr style="height:4px"></h2>
+<table class="table" cellpadding="1" cellspacing="0" border="0" id="ticketInfo">
+    <tr>
     </tr>
     <tr>
         <td width="50%">
@@ -170,7 +170,7 @@ if ((!$ticket->isClosed() || $ticket->isReopenable()) && !$blockReply) { ?>
     <input type="hidden" name="a" value="reply">
     <div>
         <p><em><?php
-         echo __('To best assist you, we request that you be specific and detailed'); ?></em>
+         echo __('To best assist you, please be specific and detailed'); ?></em>
         <font class="error">*&nbsp;<?php echo $errors['message']; ?></font>
         </p>
         <textarea name="<?php echo $messageField->getFormName(); ?>" id="message" cols="50" rows="9" wrap="soft"
@@ -190,11 +190,12 @@ echo $attrs; ?>><?php echo $draft ?: $info['message'];
         <?php echo __('Ticket will be reopened on message post'); ?>
     </div>
 <?php } ?>
-    <p style="text-align:center">
-        <input type="submit" class="buttonsbmt" value="<?php echo __('Post Reply');?>">
-        <input type="reset" class="buttonrst" value="<?php echo __('Reset');?>">
-        <input type="button" class="buttoncncl" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
-    </p>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+        <input type="submit" role="bytton" class="btn btn-outline-success" value="<?php echo __('Post Reply');?>">
+        <input type="reset" role="bytton" class="btn btn-outline-secondary" value="<?php echo __('Reset');?>">
+        <input type="button" role="bytton" class="btn btn-outline-danger" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
+    </div>
+    <br />
 </form>
 <?php
 } ?>
