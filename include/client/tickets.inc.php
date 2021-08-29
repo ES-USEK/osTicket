@@ -137,7 +137,7 @@ $tickets->values(
 );
 
 ?>
-<div class="search well">
+<div class="search well" style="display:none">
 <div>
     <form action="tickets.php" method="get" id="ticketSearchForm">
     <div class="d-flex bd-highlight mb-3">
@@ -209,9 +209,9 @@ $tickets->values(
         </small>
     </div>
 </h1>
-<div class="table-responsive">
+<div class="container table-responsive">
     <br />
-    <table class="table table-hover" id="ticketTable" width="800" border="0" cellspacing="0" cellpadding="0">
+    <table class="table table-hover" id="ticketTable" cellspacing="0" cellpadding="0">
         <caption><?php echo $showing; ?></caption>
         <thead>
             <tr>
