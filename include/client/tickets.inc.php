@@ -138,28 +138,34 @@ $tickets->values(
 
 ?>
 <div class="search well">
-<div class="flush-left">
-<form action="tickets.php" method="get" id="ticketSearchForm">
-    <input type="hidden" name="a"  value="search">
-    <input type="text" name="keywords" size="30" value="<?php echo Format::htmlchars($settings['keywords']); ?>">
-    <input type="submit" value="<?php echo __('Search');?>">
-<div class="pull-right">
-    <select name="topic_id" class="form-control nowarn" onchange="javascript: this.form.submit(); ">
-        <option value="">&mdash; <?php echo __('All Help Topics');?> &mdash;</option>
-<?php
-foreach (Topic::getHelpTopics(true) as $id=>$name) {
-        $count = $thisclient->getNumTopicTickets($id, $org_tickets);
-        if ($count == 0)
-            continue;
-?>
-        <option value="<?php echo $id; ?>"i
-            <?php if ($settings['topic_id'] == $id) echo 'selected="selected"'; ?>
-            ><?php echo sprintf('%s (%d)', Format::htmlchars($name),
-                $thisclient->getNumTopicTickets($id)); ?></option>
-<?php } ?>
-    </select>
-</div>
-</form>
+<div>
+    <form action="tickets.php" method="get" id="ticketSearchForm">
+    <div class="d-flex bd-highlight mb-3">
+        <div class="bd-highlight">
+            <input type="hidden" name="a"  value="search">
+            <input type="text" name="keywords" size="30" value="<?php echo Format::htmlchars($settings['keywords']); ?>">
+        </div>
+        <div class="bd-highlight">
+            <input type="submit" value="<?php echo __('Search');?>">
+        </div>
+        <div class="ms-auto bd-highlight">
+            <select name="topic_id" class="form-control nowarn" onchange="javascript: this.form.submit(); ">
+                <option value="">&mdash; <?php echo __('All Help Topics');?> &mdash;</option>
+                <?php
+                foreach (Topic::getHelpTopics(true) as $id=>$name) {
+                        $count = $thisclient->getNumTopicTickets($id, $org_tickets);
+                        if ($count == 0)
+                            continue;
+                ?>
+                        <option value="<?php echo $id; ?>"i
+                            <?php if ($settings['topic_id'] == $id) echo 'selected="selected"'; ?>
+                            ><?php echo sprintf('%s (%d)', Format::htmlchars($name),
+                                $thisclient->getNumTopicTickets($id)); ?></option>
+                <?php } ?>
+            </select>
+        </div>
+    </div>
+    </form>
 </div>
 
 <?php if ($settings['keywords'] || $settings['topic_id'] || $_REQUEST['sort']) { ?>
