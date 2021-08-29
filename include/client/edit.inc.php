@@ -21,10 +21,18 @@ if(!defined('OSTCLIENTINC') || !$thisclient || !$ticket || !$ticket->checkUserAc
     </tbody>
 </table>
 <hr>
-<div class="d-grid gap-2 d-md-flex justify-content-md-center">
-    <input type="submit" value="Update" role="button" class="btn btn-outline-success"/>
-    <input type="reset" value="Reset" role="button" class="btn btn-outline-secondary"/>
-    <input type="button" value="Cancel" role="button" class="btn btn-outline-danger" onclick="javascript:
+<!-- USEK -->
+<!-- <div class="d-grid gap-2 d-md-flex justify-content-md-center col-3 mx-auto"> -->
+<div class="d-flex bd-highlight mb-3">
+    <div class="me-auto p-2 bd-highlight">
+        <input type="submit" value="Update" role="button" class="btn btn-outline-success"/>
+    </div>
+    <div class="p-2 bd-highlight">
+        <input type="reset" value="Reset" role="button" class="btn btn-outline-secondary"/>
+    </div>
+    <div class="p-2 bd-highlight">
+        <input type="button" value="Cancel" role="button" class="btn btn-outline-danger" onclick="javascript:
         window.location.href='index.php';"/>
+    </div>
 </div>
 </form>

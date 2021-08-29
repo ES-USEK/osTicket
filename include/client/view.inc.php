@@ -190,10 +190,18 @@ echo $attrs; ?>><?php echo $draft ?: $info['message'];
         <?php echo __('Ticket will be reopened on message post'); ?>
     </div>
 <?php } ?>
-    <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-        <input type="submit" role="bytton" class="btn btn-outline-success" value="<?php echo __('Post Reply');?>">
-        <input type="reset" role="bytton" class="btn btn-outline-secondary" value="<?php echo __('Reset');?>">
-        <input type="button" role="bytton" class="btn btn-outline-danger" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
+    <!-- USEK -->
+    <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-center col-3 mx-auto"> -->
+    <div class="d-flex bd-highlight mb-3">
+        <div class="me-auto p-2 bd-highlight">
+            <input type="submit" role="bytton" class="btn btn-outline-success" value="<?php echo __('Post Reply');?>">
+        </div>
+        <div class="p-2 bd-highlight">
+            <input type="reset" role="bytton" class="btn btn-outline-secondary" value="<?php echo __('Reset');?>">
+        </div>
+        <div class="p-2 bd-highlight">
+            <input type="button" role="bytton" class="btn btn-outline-danger" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
+        </div>
     </div>
     <br />
 </form>

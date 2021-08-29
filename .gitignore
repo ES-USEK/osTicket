@@ -18,4 +18,10 @@ stage
 include/mpdf/ttfontdata
 include/mpdf/tmp
 nbproject/
+images/favicon.ico
+images/Logo.gif
+images/usek-ticket-logo.png
+images/usek-favicon.png
+images/usek-favicon-32x32.png
+images/usek-favicon-16x16.png
 css/fontawesome-free-5.15.4-web

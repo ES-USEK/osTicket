@@ -116,16 +116,22 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
   </table>
 <hr/>
  <!-- USEK change -->
- <div class="d-grid gap-2 d-md-flex justify-content-md-center">
-    <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create Ticket');?>">
-    <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
-    <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
-        $('.richtext').each(function() {
-            var redactor = $(this).data('redactor');
-            if (redactor && redactor.opts.draftDelete)
-                redactor.plugin.draft.deleteDraft();
-        });
-        window.location.href='index.php';">
+ <div class="d-flex bd-highlight mb-3">
+    <div class="me-auto p-2 bd-highlight">
+        <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create Ticket');?>">
+    </div>
+    <div class="p-2 bd-highlight">
+        <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
+    </div>
+    <div class="p-2 bd-highlight">
+        <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+            $('.richtext').each(function() {
+                var redactor = $(this).data('redactor');
+                if (redactor && redactor.opts.draftDelete)
+                    redactor.plugin.draft.deleteDraft();
+            });
+            window.location.href='index.php';">
+    </div>
   </div>
 
 </form>
