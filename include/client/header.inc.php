@@ -40,7 +40,7 @@ if (osTicket::is_ie())
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 	<link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/theme.css" media="screen">
     <!-- USEK Theme -->
-    <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/usek-theme.css?cb6766e" media="screen"/>
+    <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/usek-theme.css" media="screen"/>
     <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/print.css" media="print">
     <link rel="stylesheet" href="<?php echo ROOT_PATH; ?>scp/css/typeahead.css"
          media="screen" />

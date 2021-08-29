@@ -53,8 +53,6 @@ if (osTicket::is_ie())
     <!-- USEK Favicons -->
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/usek-favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="<?php echo ROOT_PATH ?>images/usek-favicon-16x16.png" sizes="16x16" />
-    <!-- USEK Theme -->
-    <link rel="stylesheet" href="<?php echo ASSETS_PATH; ?>css/usek-theme.css?cb6766e" media="screen"/>
     
     <?php
     if($ost && ($headers=$ost->getExtraHeaders())) {
