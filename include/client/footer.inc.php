@@ -2,7 +2,7 @@
     </div>
     <br />
     <div class="font-size-sm" style="text-align:center;">
-        <a href="/osticket/scp/" target="_blank">Admin <i class="fas fa-user-cog"></i></a>
+        <a href="<?php echo ROOT_PATH; ?>scp/" target="_blank">Admin <i class="fas fa-user-cog"></i></a>
     </div>
     <div id="footer">
         <p><?php echo __('Copyright &copy;'); ?> <?php echo date('Y'); ?> <?php

@@ -2,7 +2,7 @@
 </div>
 <br />
 <div class="font-size-sm" style="text-align:center;">
-    <a href="/osticket/" target="_blank">Log in as a User <i class="far fa-user"></i></a>
+    <a href="<?php echo ROOT_PATH; ?>" target="_blank">Log in as a User <i class="far fa-user"></i></a>
 </div>
 <?php if (!isset($_SERVER['HTTP_X_PJAX'])) { ?>
     <div id="footer">

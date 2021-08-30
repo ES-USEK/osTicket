@@ -36,5 +36,5 @@ if ($content) {
 </div>
 <br />
 <!-- <div style="text-align:center;">
-    <b>I'm an agent</b> — <a href="/osticket/scp/">sign in here</a>
+    <b>I'm an agent</b> — <a href="<?php echo ROOT_PATH; ?>scp/">sign in here</a>
 </div> -->
