@@ -16,8 +16,8 @@ if ($content) {
 }
 
 ?>
-<h1><?php echo Format::display($title); ?></h1>
-<p><?php echo Format::display($body); ?></p>
+<p class="fs-1"><?php echo Format::display($title); ?></p>
+<p class="fs-6"><?php echo Format::display($body); ?></p>
 <form action="login.php" method="post" id="clientLogin" style="background:white">
         <?php csrf_token(); ?>
         <div>

@@ -31,28 +31,31 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
 }
 
 ?>
-<h1><?php echo __('Open a New Ticket');?></h1>
-<p><?php echo __('Please fill in the form below to open a new ticket.');?></p>
+
+<?php
+    if (!$thisclient) {
+        echo '<meta http-equiv="refresh" content="1; URL=index.php" />';
+    }
+?>
+<div class="container" style="text-align:center">
+    <p class="fs-1"><?php echo __('New Ticket');?></p>
+    <p class="fs-6"><?php echo __('Please fill in the form below to open a new ticket.');?></p>
+</div>
+
+<!-- <div class="container">
+    <div class="card" style="width: 18rem;">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item"></li>
+            <li class="list-group-item">Client: <?php echo Format::htmlchars($thisclient->getName()); ?></li>
+            <li class="list-group-item">Email: <?php echo Format::htmlchars($thisclient->getEmail()); ?></li>
+        </ul>
+    </div>
+</div> -->
 <form id="ticketForm" method="post" action="open.php" enctype="multipart/form-data">
   <?php csrf_token(); ?>
   <input type="hidden" name="a" value="open">
     <div class="container table-responsive">
         <table class="table table-borderless" cellpadding="1" cellspacing="0" border="0">
-            <tbody>
-            <?php
-                if (!$thisclient) {
-                    $uform = UserForm::getUserForm()->getForm($_POST);
-                    if ($_POST) $uform->isValid();
-                    $uform->render(array('staff' => false, 'mode' => 'create'));
-                }
-                else { ?>
-                    <tr><td colspan="2"><hr /></td></tr>
-                <tr><td><?php echo __('Email'); ?>:</td><td><?php
-                    echo $thisclient->getEmail(); ?></td></tr>
-                <tr><td><?php echo __('Client'); ?>:</td><td><?php
-                    echo Format::htmlchars($thisclient->getName()); ?></td></tr>
-                <?php } ?>
-            </tbody>
             <tbody>
             <tr><td colspan="2"><hr />
                 <div class="form-header" style="margin-bottom:0.5em">
@@ -117,23 +120,25 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
         </table>
     </div>
 <hr/>
- <!-- USEK change -->
- <div class="d-flex bd-highlight mb-3">
-    <div class="me-auto p-2 bd-highlight">
-        <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create Ticket');?>">
+<!-- USEK change -->
+<div class="container">
+    <div class="d-flex bd-highlight mb-3">
+        <div class="me-auto p-2 bd-highlight">
+            <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create Ticket');?>">
+        </div>
+        <div class="p-2 bd-highlight">
+            <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
+        </div>
+        <div class="p-2 bd-highlight">
+            <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+                $('.richtext').each(function() {
+                    var redactor = $(this).data('redactor');
+                    if (redactor && redactor.opts.draftDelete)
+                        redactor.plugin.draft.deleteDraft();
+                });
+                window.location.href='index.php';">
+        </div>
     </div>
-    <div class="p-2 bd-highlight">
-        <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
-    </div>
-    <div class="p-2 bd-highlight">
-        <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
-            $('.richtext').each(function() {
-                var redactor = $(this).data('redactor');
-                if (redactor && redactor.opts.draftDelete)
-                    redactor.plugin.draft.deleteDraft();
-            });
-            window.location.href='index.php';">
-    </div>
-  </div>
+</div>
 
 </form>
