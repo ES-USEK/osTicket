@@ -106,28 +106,15 @@ if (osTicket::is_ie())
         <div id="header">
             <div class="pull-right flush-right">
             <p>
-             <?php
+                <?php
                 if ($thisclient && is_object($thisclient) && $thisclient->isValid()
                     && !$thisclient->isGuest()) {
-                 echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
+                //  echo Format::htmlchars($thisclient->getName()).'&nbsp;|';
                  ?>
-                <!-- <a href="<?php echo ROOT_PATH; ?>profile.php"><?php echo __('Profile'); ?></a> | -->
-                <a href="<?php echo ROOT_PATH; ?>tickets.php"><?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a> -
-                <a href="<?php echo $signout_url; ?>"><span class="sign-out"></span> <?php echo __('Sign Out'); ?></a>
-            <?php
-            } elseif($nav) {
-                // USEK: Disabled Guest User
-                /*if ($cfg->getClientRegistrationMode() == 'public') { ?>
-                    <?php echo __('Guest User'); ?> | <?php
-                }*/
-                if ($thisclient && $thisclient->isValid() && $thisclient->isGuest()) { ?>
-                    <a href="<?php echo $signout_url; ?>"><span class="sign-out"></span> <?php echo __('Sign Out'); ?></a><?php
-                }
-                elseif ($cfg->getClientRegistrationMode() != 'disabled') { ?>
-                    <a class="signin" href="<?php echo $signin_url; ?>"><span class="sign-in"></span> <?php echo __('Sign In'); ?></a>
-            <?php
-                }
-            } ?>
+                <a class="btn btn-outline-dark" href="<?php echo ROOT_PATH; ?>tickets.php"><i class="fas fa-ticket-alt"></i> <?php echo sprintf(__('Tickets <b>(%d)</b>'), $thisclient->getNumTickets()); ?></a>
+                &nbsp;
+                <a class="btn btn-outline-secondary" href="<?php echo $signout_url; ?>"><i class="fas fa-sign-out-alt"></i> <?php echo __('Sign Out'); ?></a>
+            <?php } ?>
             </p>
             <p>
 <?php

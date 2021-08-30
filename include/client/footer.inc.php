@@ -1,9 +1,18 @@
         </div>
     </div>
     <br />
-    <div class="font-size-sm" style="text-align:center;">
-        <a href="<?php echo ROOT_PATH; ?>scp/" target="_blank">Admin <i class="fas fa-user-cog"></i></a>
+    <div class="fs-6 p-2" style="text-align:center;">
+        <?php
+        if ($thisclient && is_object($thisclient) && $thisclient->isValid()
+                        && !$thisclient->isGuest()) {
+            ?> Logged in as: <b><?php
+            echo Format::htmlchars($thisclient->getName()); ?></b><?php
+        } ?>
     </div>
+    <div class="fs-6" style="text-align:center;">
+        <a href="<?php echo ROOT_PATH; ?>scp/" target="_blank">Switch to Admin <i class="fas fa-user-cog"></i></a>
+    </div>
+    <hr />
     <div id="footer">
         <p><?php echo __('Copyright &copy;'); ?> <?php echo date('Y'); ?> <?php
         echo Format::htmlchars((string) $ost->company ?: 'www.usek.edu.lb'); ?> - <?php echo __('All rights reserved.'); ?></p>

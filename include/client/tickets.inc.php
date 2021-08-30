@@ -177,11 +177,11 @@ $tickets->values(
 
 <h1 style="margin:10px 0">
     <a role="button" class="btn btn-outline-dark" id="dOpenNewTicket" href="open.php">
-        <i class="fas fa-plus"></i>&nbsp;Create New Ticket
+        <i class="fas fa-plus"></i>&nbsp;New Ticket
     </a >
     <a role="button" class="btn btn-outline-secondary" href="<?php echo Format::htmlchars($_SERVER['REQUEST_URI']); ?>"
         ><i class="fas fa-sync-alt"></i>
-    <?php echo __('Tickets'); ?>
+    <?php echo __(''); ?>
     </a>
 
     <div class="pull-right states">
