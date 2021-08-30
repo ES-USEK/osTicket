@@ -40,6 +40,7 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
 <div class="container" style="text-align:center">
     <p class="fs-1"><?php echo __('New Ticket');?></p>
     <p class="fs-6"><?php echo __('Please fill in the form below to open a new ticket.');?></p>
+    <hr />
 </div>
 
 <!-- <div class="container">
@@ -57,14 +58,9 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     <div class="container table-responsive">
         <table class="table table-borderless" cellpadding="1" cellspacing="0" border="0">
             <tbody>
-            <tr><td colspan="2"><hr />
-                <div class="form-header" style="margin-bottom:0.5em">
-                <b><?php echo __('Help Topic'); ?></b>
-                <font class="error">*&nbsp;</font>
-                </div>
-            </td></tr>
             <tr>
                 <td colspan="2">
+                    <p class="fs-4">Help Topic <font class="error">*</font></p>
                     <select id="topicId" name="topicId" onchange="javascript:
                             var data = $(':input[name]', '#dynamic-form').serialize();
                             $.ajax(
