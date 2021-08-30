@@ -40,21 +40,11 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
 <div class="container" style="text-align:center">
     <p class="fs-1"><?php echo __('New Ticket');?></p>
     <p class="fs-6"><?php echo __('Please fill in the form below to open a new ticket.');?></p>
-    <hr />
 </div>
-
-<!-- <div class="container">
-    <div class="card" style="width: 18rem;">
-        <ul class="list-group list-group-flush">
-            <li class="list-group-item"></li>
-            <li class="list-group-item">Client: <?php echo Format::htmlchars($thisclient->getName()); ?></li>
-            <li class="list-group-item">Email: <?php echo Format::htmlchars($thisclient->getEmail()); ?></li>
-        </ul>
-    </div>
-</div> -->
 <form id="ticketForm" method="post" action="open.php" enctype="multipart/form-data">
-  <?php csrf_token(); ?>
-  <input type="hidden" name="a" value="open">
+    <?php csrf_token(); ?>
+    <input type="hidden" name="a" value="open">
+    <div class="form-control">
     <div class="container table-responsive">
         <table class="table table-borderless" cellpadding="1" cellspacing="0" border="0">
             <tbody>
@@ -115,26 +105,26 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
             </tbody>
         </table>
     </div>
-<hr/>
-<!-- USEK change -->
-<div class="container">
-    <div class="d-flex bd-highlight mb-3">
-        <div class="me-auto p-2 bd-highlight">
-            <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create Ticket');?>">
-        </div>
-        <div class="p-2 bd-highlight">
-            <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
-        </div>
-        <div class="p-2 bd-highlight">
-            <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
-                $('.richtext').each(function() {
-                    var redactor = $(this).data('redactor');
-                    if (redactor && redactor.opts.draftDelete)
-                        redactor.plugin.draft.deleteDraft();
-                });
-                window.location.href='index.php';">
+    </div>
+    <hr/>
+    <!-- USEK change -->
+    <div class="container-md">
+        <div class="d-flex bd-highlight mb-3">
+            <div class="me-auto p-1 bd-highlight">
+                <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create');?>">
+            </div>
+            <div class="p-1 bd-highlight">
+                <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
+            </div>
+            <div class="p-1 bd-highlight">
+                <input type="button" name="cancel" role="button" class="btn btn-outline-danger" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+                    $('.richtext').each(function() {
+                        var redactor = $(this).data('redactor');
+                        if (redactor && redactor.opts.draftDelete)
+                            redactor.plugin.draft.deleteDraft();
+                    });
+                    window.location.href='index.php';">
+            </div>
         </div>
     </div>
-</div>
-
 </form>
