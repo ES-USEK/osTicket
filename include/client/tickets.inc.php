@@ -211,7 +211,7 @@ $tickets->values(
 </h1>
 <div class="container table-responsive">
     <br />
-    <table class="table table-hover" id="ticketTable" cellspacing="0" cellpadding="0">
+    <table class="table table-striped table-hover" id="ticketTable" cellspacing="0" cellpadding="0">
         <caption><?php echo $showing; ?></caption>
         <thead>
             <tr>
