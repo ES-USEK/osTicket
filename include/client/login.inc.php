@@ -35,6 +35,6 @@ if ($content) {
     </form>
 </div>
 <br />
-<div style="text-align:center;">
+<!-- <div style="text-align:center;">
     <b>I'm an agent</b> — <a href="/osticket/scp/">sign in here</a>
-</div>
+</div> -->
