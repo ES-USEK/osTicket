@@ -66,16 +66,16 @@ if ($thisclient && $thisclient->isGuest()
                     </td></tr>
                 </thead>
                 <tr>
-                    <th width="100"><?php echo __('Status');?>:</th>
-                    <td><?php echo ($S = $ticket->getStatus()) ? $S->getLocalName() : ''; ?></td>
+                    <th class="align-middle" width="100"><?php echo __('Status');?>:</th>
+                    <td class="align-middle"><?php echo ($S = $ticket->getStatus()) ? $S->getLocalName() : ''; ?></td>
                 </tr>
                 <tr>
-                    <th><?php echo __('Department');?>:</th>
-                    <td><?php echo Format::htmlchars($dept instanceof Dept ? $dept->getName() : ''); ?></td>
+                    <th class="align-middle"><?php echo __('Department');?>:</th>
+                    <td class="align-middle"><?php echo Format::htmlchars($dept instanceof Dept ? $dept->getName() : ''); ?></td>
                 </tr>
                 <tr>
-                    <th><?php echo __('Create Date');?>:</th>
-                    <td><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
+                    <th class="align-middle"><?php echo __('Create Date');?>:</th>
+                    <td class="align-middle"><?php echo Format::datetime($ticket->getCreateDate()); ?></td>
                 </tr>
            </table>
        </td>
@@ -87,16 +87,16 @@ if ($thisclient && $thisclient->isGuest()
                     </td></tr>
                 </thead>
                <tr>
-                   <th width="100"><?php echo __('Name');?>:</th>
-                   <td><?php echo mb_convert_case(Format::htmlchars($ticket->getName()), MB_CASE_TITLE); ?></td>
+                   <th class="align-middle" width="100"><?php echo __('Name');?>:</th>
+                   <td class="align-middle"><?php echo mb_convert_case(Format::htmlchars($ticket->getName()), MB_CASE_TITLE); ?></td>
                </tr>
                <tr>
-                   <th width="100"><?php echo __('Email');?>:</th>
-                   <td><?php echo Format::htmlchars($ticket->getEmail()); ?></td>
+                   <th class="align-middle"><?php echo __('Email');?>:</th>
+                   <td class="align-middle"><?php echo Format::htmlchars($ticket->getEmail()); ?></td>
                </tr>
                <tr>
-                   <th><?php echo __('Phone');?>:</th>
-                   <td><?php echo $ticket->getPhoneNumber(); ?></td>
+                   <th class="align-middle"><?php echo __('Phone');?>:</th>
+                   <td class="align-middle"><?php echo $ticket->getPhoneNumber(); ?></td>
                </tr>
             </table>
        </td>
