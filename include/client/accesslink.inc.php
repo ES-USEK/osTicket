@@ -4,13 +4,14 @@ if(!defined('OSTCLIENTINC')) die('Access Denied');
 $email=Format::input($_POST['lemail']?$_POST['lemail']:$_GET['e']);
 $ticketid=Format::input($_POST['lticket']?$_POST['lticket']:$_GET['t']);
 
-if ($cfg->isClientEmailVerificationRequired())
+if ($cfg->isClientEmailVerificationRequired()) {
     $button = __("Email Access Link");
-else
+    echo '<meta http-equiv="refresh" content="1; URL=index.php" />';
+} else
     $button = __("View Ticket");
 ?>
-<h1><?php echo __('Check Ticket Status'); ?></h1>
-<p><?php
+<p class="fs-3"><?php echo __('Check Ticket Status'); ?></p>
+<p class="fs-6"><?php
 echo __('Please provide your email address and a ticket number.');
 if ($cfg->isClientEmailVerificationRequired())
     echo ' '.__('An access link will be emailed to you.');
@@ -39,7 +40,7 @@ else
     <div class="instructions">
         <?php if ($cfg && $cfg->getClientRegistrationMode() !== 'disabled') { ?>
                 <?php echo __('Have an account with us?'); ?>
-                <a href="login.php"><?php echo __('Sign In'); ?></a> <?php 
+                <a href="login.php" class="btn btn-dark" role="button"><?php echo __('Sign In'); ?></a> <?php 
         }?>
     </div>
     </div>
