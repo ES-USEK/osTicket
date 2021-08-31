@@ -190,7 +190,7 @@ $tickets->values(
         <i class="fas fa-envelope-open-text" style="color:mediumseagreen"></i>
         <a class="state <?php if ($status == 'open') echo 'active'; ?>"
             href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'open')); ?>">
-        <?php echo _P('ticket-status', 'Open'); if ($openTickets > 0) echo sprintf(' (%d)', $openTickets); ?>
+        <?php echo _P('ticket-status', 'Open'); if ($openTickets >= 0) echo sprintf(' (%d)', $openTickets); ?>
         </a>
         <?php if ($closedTickets) { ?>
         &nbsp;
@@ -203,7 +203,7 @@ $tickets->values(
         <i class="fas fa-envelope" style="color:black"></i>
         <a class="state <?php if ($status == 'closed') echo 'active'; ?>"
             href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'closed')); ?>">
-        <?php echo __('Closed'); if ($closedTickets > 0) echo sprintf(' (%d)', $closedTickets); ?>
+        <?php echo __('Closed'); if ($closedTickets >= 0) echo sprintf(' (%d)', $closedTickets); ?>
         </a>
     <?php } ?>
         </small>
@@ -218,16 +218,16 @@ $tickets->values(
                 <th nowrap>
                     <a href="tickets.php?sort=ID&order=<?php echo $negorder; ?><?php echo $qstr; ?>" title="Sort By Ticket ID"><?php echo __('Ticket #');?>&nbsp;<i class="icon-sort"></i></a>
                 </th>
-                <th width="120">
+                <th>
                     <a href="tickets.php?sort=date&order=<?php echo $negorder; ?><?php echo $qstr; ?>" title="Sort By Date"><?php echo __('Create Date');?>&nbsp;<i class="icon-sort"></i></a>
                 </th>
-                <th width="100">
+                <th>
                     <a href="tickets.php?sort=status&order=<?php echo $negorder; ?><?php echo $qstr; ?>" title="Sort By Status"><?php echo __('Status');?>&nbsp;<i class="icon-sort"></i></a>
                 </th>
-                <th width="320">
+                <th>
                     <a href="tickets.php?sort=subject&order=<?php echo $negorder; ?><?php echo $qstr; ?>" title="Sort By Subject"><?php echo __('Subject');?>&nbsp;<i class="icon-sort"></i></a>
                 </th>
-                <th width="120">
+                <th>
                     <a href="tickets.php?sort=dept&order=<?php echo $negorder; ?><?php echo $qstr; ?>" title="Sort By Department"><?php echo __('Department');?>&nbsp;<i class="icon-sort"></i></a>
                 </th>
             </tr>
@@ -275,7 +275,7 @@ $tickets->values(
             }
 
         } else {
-            echo '<tr><td colspan="5">'.__('Your query did not match any records').'</td></tr>';
+            echo '<tr><td colspan="5">'.__('No tickets found').'</td></tr>';
         }
         ?>
         </tbody>

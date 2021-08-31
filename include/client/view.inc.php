@@ -29,19 +29,19 @@ if ($thisclient && $thisclient->isGuest()
 <?php } ?>
 
 <div class="d-flex bd-highlight mb-3">
-    <div class="me-auto p-2 bd-highlight">
-        <h1>
+    <div class="me-auto p-1 bd-highlight">
+        <p class="fs-4">
         <a href="tickets.php?id=<?php echo $ticket->getId(); ?>" title="<?php echo __('Reload'); ?>"><i class="refresh icon-refresh"></i></a>
         <b><?php $subject_field = TicketForm::getInstance()->getField('subject');
             echo $subject_field->display($ticket->getSubject()); ?></b>
         <small>#<?php echo $ticket->getNumber(); ?></small>
-        </h1>
+        </p>
     </div>
-    <div class="p-2 bd-highlight">
+    <div class="p-1 bd-highlight">
         <a class="btn btn-outline-secondary" href="tickets.php?a=print&id=<?php
             echo $ticket->getId(); ?>"><i class="icon-print"></i> <?php echo __('Print'); ?></a>
     </div>
-    <div class="p-2 bd-highlight">
+    <div class="p-1 bd-highlight">
         <?php if ($ticket->hasClientEditableFields()
             // Only ticket owners can edit the ticket details (and other forms)
             && $thisclient->getId() == $ticket->getUserId()) { ?>
@@ -51,19 +51,22 @@ if ($thisclient && $thisclient->isGuest()
     </div>
 </div>
 <h2><hr style="height:4px"></h2>
+
+<div class="container-sm">
+<div class="table-responsive">
 <table class="table" cellpadding="1" cellspacing="0" border="0" id="ticketInfo">
     <tr>
     </tr>
     <tr>
         <td width="50%">
-            <table class="infoTable" cellspacing="1" cellpadding="3" width="100%" border="0">
+            <table class="infoTable table" cellspacing="1" cellpadding="3" width="100%" border="0">
                 <thead>
                     <tr><td class="headline" colspan="2">
-                        <?php echo __('Basic Ticket Information'); ?>
+                        <?php echo __('Ticket Information'); ?>
                     </td></tr>
                 </thead>
                 <tr>
-                    <th width="100"><?php echo __('Ticket Status');?>:</th>
+                    <th width="100"><?php echo __('Status');?>:</th>
                     <td><?php echo ($S = $ticket->getStatus()) ? $S->getLocalName() : ''; ?></td>
                 </tr>
                 <tr>
@@ -77,7 +80,7 @@ if ($thisclient && $thisclient->isGuest()
            </table>
        </td>
        <td width="50%">
-           <table class="infoTable" cellspacing="1" cellpadding="3" width="100%" border="0">
+           <table class="infoTable table" cellspacing="1" cellpadding="3" width="100%" border="0">
                 <thead>
                     <tr><td class="headline" colspan="2">
                         <?php echo __('User Information'); ?>
@@ -139,6 +142,8 @@ echo $v;
     </td>
 </tr>
 </table>
+</div>
+</div>
 <br>
   <?php
     $email = $thisclient->getUserName();
@@ -193,13 +198,13 @@ echo $attrs; ?>><?php echo $draft ?: $info['message'];
     <!-- USEK -->
     <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-center col-3 mx-auto"> -->
     <div class="d-flex bd-highlight mb-3">
-        <div class="me-auto p-2 bd-highlight">
-            <input type="submit" role="bytton" class="btn btn-outline-success" value="<?php echo __('Post Reply');?>">
+        <div class="me-auto p-1 bd-highlight">
+            <input type="submit" role="bytton" class="btn btn-outline-success" value="<?php echo __('Reply');?>">
         </div>
-        <div class="p-2 bd-highlight">
+        <div class="p-1 bd-highlight">
             <input type="reset" role="bytton" class="btn btn-outline-secondary" value="<?php echo __('Reset');?>">
         </div>
-        <div class="p-2 bd-highlight">
+        <div class="p-1 bd-highlight">
             <input type="button" role="bytton" class="btn btn-outline-danger" value="<?php echo __('Cancel');?>" onClick="history.go(-1)">
         </div>
     </div>
