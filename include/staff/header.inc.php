@@ -7,7 +7,7 @@ $title = ($ost && ($title=$ost->getPageTitle()))
 
 if (!isset($_SERVER['HTTP_X_PJAX'])) { ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html<?php
+<html <?php
 if (($lang = Internationalization::getCurrentLanguage())
         && ($info = Internationalization::getLanguageInfo($lang))
         && (@$info['direction'] == 'rtl'))
@@ -18,7 +18,7 @@ if ($lang) {
 
 // Dropped IE Support Warning
 if (osTicket::is_ie())
-    $ost->setWarning(__('osTicket no longer supports Internet Explorer.'));
+    $ost->setWarning(__('Internet Explorer is no longer supported!'));
 ?>>
 <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">

@@ -174,7 +174,7 @@ $tickets->values(
 
 </div>
 
-
+<div class="container">
 <h1 style="margin:10px 0">
     <a role="button" class="btn btn-outline-dark" id="dOpenNewTicket" href="open.php">
         <i class="fas fa-plus"></i>&nbsp;New Ticket
@@ -208,6 +208,7 @@ $tickets->values(
         </small>
     </div>
 </h1>
+</div>
 <div class="container table-responsive">
     <br />
     <table class="table table-striped table-hover" id="ticketTable" cellspacing="0" cellpadding="0">

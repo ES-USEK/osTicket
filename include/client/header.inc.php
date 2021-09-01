@@ -26,7 +26,7 @@ if ($lang) {
 
 // Dropped IE Support Warning
 if (osTicket::is_ie())
-    $ost->setWarning(__('osTicket no longer supports Internet Explorer.'));
+    $ost->setWarning(__('Internet Explorer is no longer supported!'));
 ?>>
 <head>
     <meta charset="utf-8">
