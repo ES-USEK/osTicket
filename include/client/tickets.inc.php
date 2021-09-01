@@ -186,26 +186,25 @@ $tickets->values(
 
     <div class="pull-right states">
         <small>
-    <?php if ($openTickets) { ?>
-        <i class="fas fa-envelope-open-text" style="color:mediumseagreen"></i>
+    <!-- < ?php if ($openTickets) { ?> -->
+        <i class="fas fa-envelope-open-text" style="color:#00569c"></i>
         <a class="state <?php if ($status == 'open') echo 'active'; ?>"
             href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'open')); ?>">
         <?php echo _P('ticket-status', 'Open'); if ($openTickets >= 0) echo sprintf(' (%d)', $openTickets); ?>
         </a>
-        <?php if ($closedTickets) { ?>
-        &nbsp;
+        <!-- < ?php if ($closedTickets) { ?> -->
+        <!-- &nbsp; -->
         <span style="color:lightgray">|</span>
-        <?php }
-    }
+        <!-- < ?php } } -->
     
-    if ($closedTickets) {?>
-        &nbsp;
+    <!-- if ($closedTickets) {?> -->
+        <!-- &nbsp; -->
         <i class="fas fa-envelope" style="color:black"></i>
         <a class="state <?php if ($status == 'closed') echo 'active'; ?>"
             href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'closed')); ?>">
         <?php echo __('Closed'); if ($closedTickets >= 0) echo sprintf(' (%d)', $closedTickets); ?>
         </a>
-    <?php } ?>
+    <!-- < ?php } ?> -->
         </small>
     </div>
 </h1>

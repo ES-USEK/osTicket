@@ -199,7 +199,7 @@ echo $attrs; ?>><?php echo $draft ?: $info['message'];
     <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-center col-3 mx-auto"> -->
     <div class="d-flex bd-highlight mb-3">
         <div class="me-auto p-1 bd-highlight">
-            <input type="submit" role="bytton" class="btn btn-outline-success" value="<?php echo __('Reply');?>">
+            <input type="submit" role="bytton" class="btn btn-success" value="<?php echo __('Reply');?>">
         </div>
         <div class="p-1 bd-highlight">
             <input type="reset" role="bytton" class="btn btn-outline-secondary" value="<?php echo __('Reset');?>">

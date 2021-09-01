@@ -4,9 +4,11 @@ if(!defined('OSTCLIENTINC') || !$thisclient || !$ticket || !$ticket->checkUserAc
 
 ?>
 
-<h1>
-    <?php echo sprintf(__('Editing Ticket #%s'), $ticket->getNumber()); ?>
-</h1>
+<p class="fs-4">Editing Ticket
+    <span style="color: var(--bs-primary)">
+        <?php echo sprintf(__(' #%s'), $ticket->getNumber()); ?>
+    </span>
+</p>
 
 <form action="tickets.php" method="post">
     <?php echo csrf_token(); ?>
@@ -25,7 +27,7 @@ if(!defined('OSTCLIENTINC') || !$thisclient || !$ticket || !$ticket->checkUserAc
 <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-center col-3 mx-auto"> -->
 <div class="d-flex bd-highlight mb-3">
     <div class="me-auto p-2 bd-highlight">
-        <input type="submit" value="Update" role="button" class="btn btn-outline-success"/>
+        <input type="submit" value="Update" role="button" class="btn btn-success"/>
     </div>
     <div class="p-2 bd-highlight">
         <input type="reset" value="Reset" role="button" class="btn btn-outline-secondary"/>

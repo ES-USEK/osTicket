@@ -29,7 +29,7 @@ if ($content) {
             <div class="d-grid gap-2 d-md-flex justify-content-md-center">
                 <input id="passwd" placeholder="<?php echo __('Password'); ?>" type="password" name="lpasswd" value="<?php echo $passwd; ?>" class="nowarn"></td>
             </div>
-            <button class="btn btn-outline-dark" type="submit">Sign In</button>
+            <button class="btn btn-primary" type="submit">Sign In</button>
             <br />
         </div>
     </form>

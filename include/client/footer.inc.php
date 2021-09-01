@@ -10,7 +10,7 @@
         } ?>
     </div>
     <div class="fs-6" style="text-align:center;">
-        <a href="<?php echo ROOT_PATH; ?>scp/" target="_blank">Switch to Admin <i class="fas fa-user-cog"></i></a>
+        <a href="<?php echo ROOT_PATH; ?>scp/" target="_blank" class="btn btn-outline-secondary" role="button">Switch to Admin <i class="fas fa-user-cog"></i></a>
     </div>
     <hr />
     <div id="footer">

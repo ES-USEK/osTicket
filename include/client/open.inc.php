@@ -111,7 +111,7 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     <div class="container-md">
         <div class="d-flex bd-highlight mb-3">
             <div class="me-auto p-1 bd-highlight">
-                <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create');?>">
+                <input type="submit" role="button" class="btn btn-success" value="<?php echo __('Create');?>">
             </div>
             <div class="p-1 bd-highlight">
                 <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
