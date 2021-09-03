@@ -1008,7 +1008,8 @@ class SavedQueue extends CustomQueue {
 
         if (!$key) {
             return array();
-        } elseif (function_exists('apcu_store')) {
+        // } elseif (function_exists('apcu_store')) {
+        } elseif (PHP_SAPI !== 'cli' && function_exists('apcu_store')) {
             $found = false;
             $counts = apcu_fetch($key, $found);
             if ($found === true)
@@ -1023,7 +1024,8 @@ class SavedQueue extends CustomQueue {
     }
 
     static function storeCounts($key, $counts, $ttl) {
-        if (function_exists('apcu_store')) {
+        // if (function_exists('apcu_store')) {
+        if (PHP_SAPI !== 'cli' && function_exists('apcu_store')) {
             apcu_store($key, $counts, $ttl);
         } else {
             // Poor man's cache
@@ -1033,7 +1035,8 @@ class SavedQueue extends CustomQueue {
     }
 
     static function clearCounts() {
-        if (function_exists('apcu_store')) {
+        // if (function_exists('apcu_store')) {
+        if (PHP_SAPI !== 'cli' && function_exists('apcu_store')) {
             if (class_exists('APCUIterator')) {
                 $regex = '/^counts.queues.\d+.' . preg_quote(SECRET_SALT, '/') . '$/';
                 foreach (new APCUIterator($regex, APC_ITER_KEY) as $key) {
