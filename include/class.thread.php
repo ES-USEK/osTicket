@@ -2160,9 +2160,12 @@ class ThreadEvent extends VerySimpleModel {
     }
 
     function render($mode) {
-        $inc = ($mode == self::MODE_STAFF) ? STAFFINC_DIR : CLIENTINC_DIR;
-        $event = $this->getTypedEvent();
-        include $inc . 'templates/thread-event.tmpl.php';
+        // $inc = ($mode == self::MODE_STAFF) ? STAFFINC_DIR : CLIENTINC_DIR;
+        if ($mode == self::MODE_STAFF) {
+            $inc = STAFFINC_DIR;
+            $event = $this->getTypedEvent();
+            include $inc . 'templates/thread-event.tmpl.php';
+        }
     }
 
     static function create($ht=false, $user=false) {
