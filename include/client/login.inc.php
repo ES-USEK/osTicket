@@ -18,7 +18,7 @@ if ($content) {
 ?>
 <p class="fs-1"><?php echo Format::display($title); ?></p>
 <p class="fs-6"><?php echo Format::display($body); ?></p>
-<form action="login.php" method="post" id="clientLogin">
+<form action="login.php" method="post" id="clientLogin" style="background:white">
     <?php csrf_token(); ?>
 <div style="display:table-row">
     <div style="color:#00569c; font-size:50px;"><i class="fas fa-user-lock"></i></div>
@@ -31,11 +31,6 @@ if ($content) {
     </div>
     <button class="btn btn-primary" type="submit">Sign In</button>
     <br>
-    <!-- USEK -->
-    <div>
-        <b><?php echo __("I'm an agent"); ?></b> —
-        <a href="<?php echo ROOT_PATH; ?>scp/"><?php echo __('Sign in Here'); ?></a>
-    </div>
 </div>
 </form>
 </div>
