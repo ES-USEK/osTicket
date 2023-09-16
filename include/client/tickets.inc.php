@@ -137,42 +137,6 @@ $tickets->values(
 );
 
 ?>
-<div class="search well">
-<form action="tickets.php" method="get" id="ticketSearchForm">
-<div class="d-flex bd-highlight mb-3">
-    <div class="bd-highlight">
-        <input type="hidden" name="a"  value="search">
-        <input type="text" name="keywords" size="30" value="<?php echo Format::htmlchars($settings['keywords']); ?>">
-    </div>
-    <div class="bd-highlight">
-        <input type="submit" value="<?php echo __('Search');?>">
-    </div>
-    <div class="ms-auto bd-highlight">
-
-    <select name="topic_id" class="nowarn" onchange="javascript: this.form.submit(); ">
-        <option value="">&mdash; <?php echo __('All Help Topics');?> &mdash;</option>
-<?php
-foreach (Topic::getHelpTopics(true) as $id=>$name) {
-        $count = $thisclient->getNumTopicTickets($id, $org_tickets);
-        if ($count == 0)
-            continue;
-?>
-        <option value="<?php echo $id; ?>"i
-            <?php if ($settings['topic_id'] == $id) echo 'selected="selected"'; ?>
-            ><?php echo sprintf('%s (%d)', Format::htmlchars($name),
-                $thisclient->getNumTopicTickets($id)); ?></option>
-<?php } ?>
-    </select>
-    </div>
-</div>
-</form>
-</div>
-
-<?php if ($settings['keywords'] || $settings['topic_id'] || $_REQUEST['sort']) { ?>
-<div style="margin-top:10px"><strong><a href="?clear" style="color:#777"><i class="icon-remove-circle"></i> <?php echo __('Clear all filters and sort'); ?></a></strong></div>
-<?php } ?>
-
-</div>
 
 <div class="container">
 <h1 style="margin:10px 0">
@@ -278,3 +242,4 @@ if ($total) {
     echo '<div>&nbsp;'.__('Page').':'.$pageNav->getPageLinks().'&nbsp;</div>';
 }
 ?>
+</div>
