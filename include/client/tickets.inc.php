@@ -137,7 +137,7 @@ $tickets->values(
 );
 
 ?>
-<div class="search well" style="display:none">
+<div class="search well">
 <form action="tickets.php" method="get" id="ticketSearchForm">
 <div class="d-flex bd-highlight mb-3">
     <div class="bd-highlight">
@@ -177,34 +177,26 @@ foreach (Topic::getHelpTopics(true) as $id=>$name) {
 <div class="container">
 <h1 style="margin:10px 0">
     <a role="button" class="btn btn-outline-dark" id="dOpenNewTicket" href="open.php">
-        <i class="refresh icon-refresh"></i><i class="fas fa-plus"></i>&nbsp;New Ticket
+        <i class="fas fa-plus"></i>&nbsp;New Ticket
     </a >
     <a role="button" class="btn btn-outline-secondary" href="<?php echo Http::refresh_url(); ?>"
         ><i class="fas fa-sync-alt"></i>
     <?php echo __(''); ?>
     </a>
-
+<!-- USEK Changes -->
 <div class="pull-right states">
     <small>
-<!-- < ?php if ($openTickets) { ?> -->
     <i class="fas fa-envelope-open-text" style="color:#00569c"></i>
     <a class="state <?php if ($status == 'open') echo 'active'; ?>"
         href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'open')); ?>">
     <?php echo _P('ticket-status', 'Open'); if ($openTickets >= 0) echo sprintf(' (%d)', $openTickets); ?>
     </a>
-    <!-- < ?php if ($closedTickets) { ?>
-    &nbsp; -->
     <span style="color:lightgray">|</span>
-    <!-- < ?php } -->
-<!-- } -->
-<!-- if ($closedTickets) {?> -->
-    <!-- &nbsp; -->
     <i class="fas fa-envelope" style="color:black"></i>
     <a class="state <?php if ($status == 'closed') echo 'active'; ?>"
         href="?<?php echo Http::build_query(array('a' => 'search', 'status' => 'closed')); ?>">
     <?php echo __('Closed'); if ($closedTickets >= 0) echo sprintf(' (%d)', $closedTickets); ?>
     </a>
-<!-- < ?php } ?> -->
     </small>
 </div>
 </h1></div>
