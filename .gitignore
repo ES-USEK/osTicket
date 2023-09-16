@@ -18,3 +18,5 @@ stage
 include/mpdf/ttfontdata
 include/mpdf/tmp
 nbproject/
+images/*
+css/fontawesome-free-5.15.4-web

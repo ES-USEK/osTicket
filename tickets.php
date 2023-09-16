@@ -141,7 +141,7 @@ if($ticket && $ticket->checkUserAccess($thisclient)) {
     $inc='tickets.inc.php';
 } else {
     $nav->setActiveNav('new');
-    $inc='open.inc.php';
+    $inc='tickets.inc.php';
 }
 include(CLIENTINC_DIR.'header.inc.php');
 include(CLIENTINC_DIR.$inc);

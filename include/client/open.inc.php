@@ -31,12 +31,22 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
 }
 
 ?>
-<h1><?php echo __('Open a New Ticket');?></h1>
-<p><?php echo __('Please fill in the form below to open a new ticket.');?></p>
+<!-- USEK -->
+<?php
+    if (!$thisclient) {
+        echo '<meta http-equiv="refresh" content="1; URL=index.php" />';
+    }
+?>
+<div class="container" style="text-align:center">
+    <p class="fs-1"><?php echo __('Open a New Ticket');?></p>
+    <p class="fs-6"><?php echo __('Please fill in the form below to open a new ticket.');?></p>
+    <hr/>
+</div>
 <form id="ticketForm" method="post" action="open.php" enctype="multipart/form-data">
   <?php csrf_token(); ?>
   <input type="hidden" name="a" value="open">
-  <table width="800" cellpadding="1" cellspacing="0" border="0">
+  <div class="container table table-responsive">
+  <table class="table table-borderless" cellpadding="1" cellspacing="0" border="0">
     <tbody>
 <?php
         if (!$thisclient) {
@@ -54,12 +64,7 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     </tbody>
     <tbody>
     <tr><td colspan="2"><hr />
-        <div class="form-header" style="margin-bottom:0.5em">
-        <b><?php echo __('Help Topic'); ?></b>
-        </div>
-    </td></tr>
-    <tr>
-        <td colspan="2">
+    <p class="fs-4"><?php echo __('Help Topic'); ?></p>
             <select id="topicId" name="topicId" onchange="javascript:
                     var data = $(':input[name]', '#dynamic-form').serialize();
                     $.ajax(
@@ -113,16 +118,26 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     <tr><td colspan=2>&nbsp;</td></tr>
     </tbody>
   </table>
+</div>
 <hr/>
-  <p class="buttons" style="text-align:center;">
-        <input type="submit" value="<?php echo __('Create Ticket');?>">
-        <input type="reset" name="reset" value="<?php echo __('Reset');?>">
-        <input type="button" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="javascript:
+<!-- USEK change -->
+<div class="container">
+<div class="d-flex bd-highlight mb-3">
+    <div class="me-auto p-2 bd-highlight">
+        <input type="submit" role="button" class="btn btn-success" value="<?php echo __('Create');?>">
+    </div>
+    <div class="me-auto p-2 bd-highlight">
+        <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
+    </div>
+    <div class="me-auto p-2 bd-highlight">
+        <input type="button" role="button" class="btn btn-outline-danger" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="javascript:
             $('.richtext').each(function() {
                 var redactor = $(this).data('redactor');
                 if (redactor && redactor.opts.draftDelete)
                     redactor.plugin.draft.deleteDraft();
             });
             window.location.href='index.php';">
-  </p>
+    </div>
+  </div>
+</div>
 </form>

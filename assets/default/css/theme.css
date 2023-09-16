@@ -291,7 +291,7 @@ body {
 }
 #container {
   background: #fff;
-  width: 840px;
+  
   margin: 0 auto;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
   -moz-box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
@@ -608,7 +608,7 @@ label.required, span.required {
   background: #fff;
   display: block;
 }
-#ticketForm div input[type=file],
+/* #ticketForm div input[type=file], */
 #clientLogin div input[type=file] {
   border: 0;
 }
