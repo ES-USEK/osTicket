@@ -18,7 +18,7 @@ if ($content) {
 ?>
 <p class="fs-1"><?php echo Format::display($title); ?></p>
 <p class="fs-6"><?php echo Format::display($body); ?></p>
-<form action="login.php" method="post" id="clientLogin" style="background:white">
+<form action="login.php" method="post" id="clientLogin" style="background:white;display:flex;justify-content: center;">
     <?php csrf_token(); ?>
 <div style="display:table-row">
     <div style="color:#00569c; font-size:50px;"><i class="fas fa-user-lock"></i></div>
