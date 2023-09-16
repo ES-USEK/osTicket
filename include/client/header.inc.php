@@ -154,7 +154,6 @@ if (($all_langs = Internationalization::getConfiguredSystemLanguages())
                 echo $ost->getConfig()->getTitle(); ?>">
             </a>
         </div>
-        <br>
         <div class="clear"></div>
         <br>
         <?php
