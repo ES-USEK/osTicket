@@ -112,10 +112,10 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     <div class="me-auto p-2 bd-highlight">
         <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create');?>">
     </div>
-    <div class="me-auto p-2 bd-highlight">
+    <div class="p-2 bd-highlight">
         <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
     </div>
-    <div class="me-auto p-2 bd-highlight">
+    <div class="p-2 bd-highlight">
         <input type="button" role="button" class="btn btn-outline-danger" name="cancel" value="<?php echo __('Cancel'); ?>" onclick="javascript:
             $('.richtext').each(function() {
                 var redactor = $(this).data('redactor');
