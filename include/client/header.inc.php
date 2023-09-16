@@ -159,7 +159,7 @@ if (($all_langs = Internationalization::getConfiguredSystemLanguages())
         <br>
         <?php
         if($nav){ ?>
-        <ul id="nav" class="flush-left">
+        <ul id="nav" class="flush-left" style="background:#033F78">
             <!-- <?php
             if($nav && ($navs=$nav->getNavLinks()) && is_array($navs)){
                 foreach($navs as $name =>$nav) {

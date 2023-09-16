@@ -45,26 +45,11 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
 <form id="ticketForm" method="post" action="open.php" enctype="multipart/form-data">
   <?php csrf_token(); ?>
   <input type="hidden" name="a" value="open">
-  <div class="container table table-responsive">
-  <table class="table table-borderless" cellpadding="1" cellspacing="0" border="0">
+  <div class="container table-responsive">
+  <table class="table table-borderless" cellpadding="1" cellspacing="0">
     <tbody>
-<?php
-        if (!$thisclient) {
-            $uform = UserForm::getUserForm()->getForm($_POST);
-            if ($_POST) $uform->isValid();
-            $uform->render(array('staff' => false, 'mode' => 'create'));
-        }
-        else { ?>
-            <tr><td colspan="2"><hr /></td></tr>
-        <tr><td><?php echo __('Email'); ?>:</td><td><?php
-            echo $thisclient->getEmail(); ?></td></tr>
-        <tr><td><?php echo __('Client'); ?>:</td><td><?php
-            echo Format::htmlchars($thisclient->getName()); ?></td></tr>
-        <?php } ?>
-    </tbody>
-    <tbody>
-    <tr><td colspan="2"><hr />
-    <p class="fs-4"><?php echo __('Help Topic'); ?></p>
+    <tr><td colspan="2">
+    <p class="fs-4"><?php echo __('Help Topic '); ?><font class="error">*</font></p>
             <select id="topicId" name="topicId" onchange="javascript:
                     var data = $(':input[name]', '#dynamic-form').serialize();
                     $.ajax(
@@ -119,12 +104,13 @@ if ($info['topicId'] && ($topic=Topic::lookup($info['topicId']))) {
     </tbody>
   </table>
 </div>
+</div>
 <hr/>
 <!-- USEK change -->
 <div class="container">
 <div class="d-flex bd-highlight mb-3">
     <div class="me-auto p-2 bd-highlight">
-        <input type="submit" role="button" class="btn btn-success" value="<?php echo __('Create');?>">
+        <input type="submit" role="button" class="btn btn-outline-success" value="<?php echo __('Create');?>">
     </div>
     <div class="me-auto p-2 bd-highlight">
         <input type="reset" role="button" class="btn btn-outline-secondary" name="reset" value="<?php echo __('Reset');?>">
